@@ -8,8 +8,13 @@ const {
   getDashboardDetails,
 } = require("../controllers/dashboardController");
 const { createUser } = require("../controllers/userController");
+const { registerUser, loginUser } = require("../controllers/authController");
 
 const router = express.Router();
+
+// Authentication routes
+router.post('/auth/signup', registerUser);
+router.post('/auth/login', loginUser);
 
 //User route
 router.post('/users',createUser)
